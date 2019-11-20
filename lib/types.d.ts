@@ -2,7 +2,7 @@
 import { StyleProp } from 'react-native';
 export { ActionsProps } from './Actions';
 export { AvatarProps } from './Avatar';
-export { BubbleProps, RenderMessageImageProps, RenderMessageVideoProps, RenderMessageTextProps, RenderMessageLocationProps, RenderMessageDocumentProps } from './Bubble';
+export { BubbleProps, RenderMessageImageProps, RenderMessageVideoProps, RenderMessageTextProps, RenderMessageLocationProps, RenderMessageDocumentProps, RenderMessageContactProps, RenderMessageCalendarProps } from './Bubble';
 export { ComposerProps } from './Composer';
 export { DayProps } from './Day';
 export { GiftedAvatarProps } from './GiftedAvatar';
@@ -15,6 +15,7 @@ export { MessageTextProps } from './MessageText';
 export { MessageVideoProps } from './MessageVideo';
 export { MessageLocationProps } from './MessageLocation';
 export { MessageDocumentProps } from './MessageDocument';
+export { MessageCalendarProps } from './MessageCalendar';
 export { MessageContactProps } from './MessageContact';
 export { QuickRepliesProps } from './QuickReplies';
 export { SendProps } from './Send';
@@ -50,7 +51,8 @@ export interface IMessage {
     document?: string;
     contact?: string;
     video?: string;
-    locaiton?: string;
+    location?: string;
+    calendar?: string;
     audio?: string;
     system?: boolean;
     sent?: boolean;

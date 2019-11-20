@@ -9,6 +9,7 @@ import SystemMessage from './SystemMessage';
 import MessageImage from './MessageImage';
 import MessageText from './MessageText';
 import MessageLocation from './MessageLocation';
+import MessageCalendar from './MessageCalendar';
 import MessageDocument from './MessageDocument';
 import MessageContact from './MessageContact';
 import Composer from './Composer';
@@ -41,6 +42,8 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
     imageProps?: Message['props'];
     documentProps?: Message['props'];
     contactProps?: Message['props'];
+    locationProps?: Message['props'];
+    calendarProps?: Message['props'];
     lightboxProps?: any;
     bottomOffset?: number;
     minInputToolbarHeight?: number;
@@ -53,6 +56,8 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
     imageStyle?: StyleProp<ViewStyle>;
     documentStyle?: StyleProp<ViewStyle>;
     contactStyle?: StyleProp<ViewStyle>;
+    locationStyle?: StyleProp<ViewStyle>;
+    calendarStyle?: StyleProp<ViewStyle>;
     extraData?: any;
     minComposerHeight?: number;
     maxComposerHeight?: number;
@@ -77,6 +82,7 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
     renderMessageDocument?(props: MessageDocument['props']): React.ReactNode;
     renderMessageContact?(props: MessageContact['props']): React.ReactNode;
     renderMessageLocation?(props: MessageLocation['props']): React.ReactNode;
+    renderMessageCalendar?(props: MessageCalendar['props']): React.ReactNode;
     renderCustomView?(): React.ReactNode;
     renderDay?(props: Day['props']): React.ReactNode;
     renderTime?(props: Time['props']): React.ReactNode;
@@ -137,9 +143,13 @@ declare class GiftedChat<TMessage extends IMessage = IMessage> extends React.Com
         renderMessageDocument: null;
         renderMessageContact: null;
         renderMessageLocation: null;
+        renderMessageCalendar: null;
         imageProps: {};
         documentProps: {};
         videoProps: {};
+        locationProps: {};
+        calendarProps: {};
+        contactProps: {};
         lightboxProps: {};
         textInputProps: {};
         listViewProps: {};
@@ -196,9 +206,12 @@ declare class GiftedChat<TMessage extends IMessage = IMessage> extends React.Com
         renderMessageContact: PropTypes.Requireable<(...args: any[]) => any>;
         renderMessageDocument: PropTypes.Requireable<(...args: any[]) => any>;
         renderMessageLocation: PropTypes.Requireable<(...args: any[]) => any>;
+        renderMessageCalendar: PropTypes.Requireable<(...args: any[]) => any>;
         imageProps: PropTypes.Requireable<object>;
         documentProps: PropTypes.Requireable<object>;
         contactProps: PropTypes.Requireable<object>;
+        locationProps: PropTypes.Requireable<object>;
+        calendarProps: PropTypes.Requireable<object>;
         videoProps: PropTypes.Requireable<object>;
         lightboxProps: PropTypes.Requireable<object>;
         renderCustomView: PropTypes.Requireable<(...args: any[]) => any>;
@@ -307,4 +320,4 @@ declare class GiftedChat<TMessage extends IMessage = IMessage> extends React.Com
     render(): JSX.Element;
 }
 export * from './types';
-export { GiftedChat, Actions, Avatar, Bubble, SystemMessage, MessageImage, MessageText, MessageLocation, MessageDocument, MessageContact, Composer, Day, InputToolbar, LoadEarlier, Message, MessageContainer, Send, Time, GiftedAvatar, utils, };
+export { GiftedChat, Actions, Avatar, Bubble, SystemMessage, MessageImage, MessageText, MessageLocation, MessageDocument, MessageContact, MessageCalendar, Composer, Day, InputToolbar, LoadEarlier, Message, MessageContainer, Send, Time, GiftedAvatar, utils, };
