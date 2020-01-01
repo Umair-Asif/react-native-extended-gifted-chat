@@ -12,6 +12,7 @@ import MessageLocation from './MessageLocation';
 import MessageCalendar from './MessageCalendar';
 import MessageDocument from './MessageDocument';
 import MessageContact from './MessageContact';
+import MessageAudio from './MessageAudio';
 import Composer from './Composer';
 import Day from './Day';
 import InputToolbar from './InputToolbar';
@@ -44,6 +45,7 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
     contactProps?: Message['props'];
     locationProps?: Message['props'];
     calendarProps?: Message['props'];
+    audioProps?: Message['props'];
     lightboxProps?: any;
     bottomOffset?: number;
     minInputToolbarHeight?: number;
@@ -58,6 +60,7 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
     contactStyle?: StyleProp<ViewStyle>;
     locationStyle?: StyleProp<ViewStyle>;
     calendarStyle?: StyleProp<ViewStyle>;
+    audioStyle?: StyleProp<ViewStyle>;
     extraData?: any;
     minComposerHeight?: number;
     maxComposerHeight?: number;
@@ -83,6 +86,7 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
     renderMessageContact?(props: MessageContact['props']): React.ReactNode;
     renderMessageLocation?(props: MessageLocation['props']): React.ReactNode;
     renderMessageCalendar?(props: MessageCalendar['props']): React.ReactNode;
+    renderMessageAudio?(props: MessageAudio['props']): React.ReactNode;
     renderCustomView?(): React.ReactNode;
     renderDay?(props: Day['props']): React.ReactNode;
     renderTime?(props: Time['props']): React.ReactNode;
@@ -144,11 +148,13 @@ declare class GiftedChat<TMessage extends IMessage = IMessage> extends React.Com
         renderMessageContact: null;
         renderMessageLocation: null;
         renderMessageCalendar: null;
+        renderMessageAudio: null;
         imageProps: {};
         documentProps: {};
         videoProps: {};
         locationProps: {};
         calendarProps: {};
+        audioProps: {};
         contactProps: {};
         lightboxProps: {};
         textInputProps: {};
@@ -207,11 +213,13 @@ declare class GiftedChat<TMessage extends IMessage = IMessage> extends React.Com
         renderMessageDocument: PropTypes.Requireable<(...args: any[]) => any>;
         renderMessageLocation: PropTypes.Requireable<(...args: any[]) => any>;
         renderMessageCalendar: PropTypes.Requireable<(...args: any[]) => any>;
+        renderMessageAudio: PropTypes.Requireable<(...args: any[]) => any>;
         imageProps: PropTypes.Requireable<object>;
         documentProps: PropTypes.Requireable<object>;
         contactProps: PropTypes.Requireable<object>;
         locationProps: PropTypes.Requireable<object>;
         calendarProps: PropTypes.Requireable<object>;
+        audioProps: PropTypes.Requireable<object>;
         videoProps: PropTypes.Requireable<object>;
         lightboxProps: PropTypes.Requireable<object>;
         renderCustomView: PropTypes.Requireable<(...args: any[]) => any>;
@@ -320,4 +328,4 @@ declare class GiftedChat<TMessage extends IMessage = IMessage> extends React.Com
     render(): JSX.Element;
 }
 export * from './types';
-export { GiftedChat, Actions, Avatar, Bubble, SystemMessage, MessageImage, MessageText, MessageLocation, MessageDocument, MessageContact, MessageCalendar, Composer, Day, InputToolbar, LoadEarlier, Message, MessageContainer, Send, Time, GiftedAvatar, utils, };
+export { GiftedChat, Actions, Avatar, Bubble, SystemMessage, MessageImage, MessageText, MessageLocation, MessageDocument, MessageContact, MessageCalendar, MessageAudio, Composer, Day, InputToolbar, LoadEarlier, Message, MessageContainer, Send, Time, GiftedAvatar, utils, };

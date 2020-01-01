@@ -9,12 +9,14 @@ import MessageLocation from './MessageLocation';
 import MessageDocument from './MessageDocument';
 import MessageContact from './MessageContact';
 import MessageCalendar from './MessageCalendar'
+import MessageAudio from './MessageAudio';
 import Time from './Time';
 import { User, IMessage, LeftRightStyle, Reply, Omit } from './types';
 export declare type RenderMessageImageProps<TMessage extends IMessage> = Omit<BubbleProps<TMessage>, 'containerStyle' | 'wrapperStyle'> & MessageImage['props'];
 export declare type RenderMessageDocumentProps<TMessage extends IMessage> = Omit<BubbleProps<TMessage>, 'containerStyle' | 'wrapperStyle'> & MessageDocument['props'];
 export declare type RenderMessageContactProps<TMessage extends IMessage> = Omit<BubbleProps<TMessage>, 'containerStyle' | 'wrapperStyle'> & MessageContact['props'];
 export declare type RenderMessageCalendarProps<TMessage extends IMessage> = Omit<BubbleProps<TMessage>, 'containerStyle' | 'wrapperStyle'> & MessageCalendar['props'];
+export declare type RenderMessageAudioProps<TMessage extends IMessage> = Omit<BubbleProps<TMessage>, 'containerStyle' | 'wrapperStyle'> & MessageAudio['props'];
 export declare type RenderMessageVideoProps<TMessage extends IMessage> = Omit<BubbleProps<TMessage>, 'containerStyle' | 'wrapperStyle'> & MessageVideo['props'];
 export declare type RenderMessageLocationProps<TMessage extends IMessage> = Omit<BubbleProps<TMessage>, 'containerStyle' | 'wrapperStyle'> & MessageLocation['props'];
 export declare type RenderMessageTextProps<TMessage extends IMessage> = Omit<BubbleProps<TMessage>, 'containerStyle' | 'wrapperStyle'> & MessageText['props'];
@@ -44,6 +46,7 @@ export interface BubbleProps<TMessage extends IMessage> {
     renderMessageVideo?(props: RenderMessageVideoProps<TMessage>): React.ReactNode;
     renderMessageLocation?(props: RenderMessageLocationProps<TMessage>): React.ReactNode;
     renderMessageCalendar?(props: RenderMessageCalendarProps<TMessage>): React.ReactNode;
+    renderMessageAudio?(props: RenderMessageAudioProps<TMessage>): React.ReactNode;
     renderMessageText?(props: RenderMessageTextProps<TMessage>): React.ReactNode;
     renderCustomView?(bubbleProps: BubbleProps<TMessage>): React.ReactNode;
     renderTime?(timeProps: Time['props']): React.ReactNode;
@@ -67,6 +70,7 @@ export default class Bubble<TMessage extends IMessage = IMessage> extends React.
         renderMessageVideo: null;
         renderMessageLocation: null;
         renderMessageCalendar: null;
+        renderMessageAudio: null;
         renderMessageText: null;
         renderCustomView: null;
         renderUsername: null;
@@ -101,6 +105,7 @@ export default class Bubble<TMessage extends IMessage = IMessage> extends React.
         renderMessageVideo: PropTypes.Requireable<(...args: any[]) => any>;
         renderMessageLocation: PropTypes.Requireable<(...args: any[]) => any>;
         renderMessageCalendar: PropTypes.Requireable<(...args: any[]) => any>;
+        renderMessageAudio: PropTypes.Requireable<(...args: any[]) => any>;
         renderMessageText: PropTypes.Requireable<(...args: any[]) => any>;
         renderCustomView: PropTypes.Requireable<(...args: any[]) => any>;
         renderUsernameOnMessage: PropTypes.Requireable<boolean>;
@@ -156,6 +161,7 @@ export default class Bubble<TMessage extends IMessage = IMessage> extends React.
     renderMessageCalendar(): {} | null | undefined;
     renderMessageDocument(): {} | null | undefined;
     renderMessageContact(): {} | null | undefined;
+    renderMessageAudio(): {} | null | undefined;
     renderTicks(): {} | null | undefined;
     renderTime(): {} | null | undefined;
     renderUsername(): JSX.Element | null;

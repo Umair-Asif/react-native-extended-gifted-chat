@@ -2,7 +2,7 @@
 import { StyleProp } from 'react-native';
 export { ActionsProps } from './Actions';
 export { AvatarProps } from './Avatar';
-export { BubbleProps, RenderMessageImageProps, RenderMessageVideoProps, RenderMessageTextProps, RenderMessageLocationProps, RenderMessageDocumentProps, RenderMessageContactProps, RenderMessageCalendarProps } from './Bubble';
+export { BubbleProps, RenderMessageImageProps, RenderMessageVideoProps, RenderMessageTextProps, RenderMessageLocationProps, RenderMessageDocumentProps, RenderMessageContactProps, RenderMessageCalendarProps, RenderMessageAudioProps } from './Bubble';
 export { ComposerProps } from './Composer';
 export { DayProps } from './Day';
 export { GiftedAvatarProps } from './GiftedAvatar';
@@ -17,6 +17,7 @@ export { MessageLocationProps } from './MessageLocation';
 export { MessageDocumentProps } from './MessageDocument';
 export { MessageCalendarProps } from './MessageCalendar';
 export { MessageContactProps } from './MessageContact';
+export { MessageAudioProps } from './MessageAudio';
 export { QuickRepliesProps } from './QuickReplies';
 export { SendProps } from './Send';
 export { SystemMessageProps } from './SystemMessage';
